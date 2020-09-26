@@ -26,16 +26,16 @@ router.post("/signup", async (req, res) => {
   // SAVE NEW USER IN DB
   const newUser = await User.create(req.body);
   // Redirect to login page
-  res.redirect("/auth/login");
+  res.redirect("/");
 });
 
 // LOGIN PAGE
-router.get("/login", (req, res) => {
+router.get("/", (req, res) => {
   res.render("auth/login.jsx");
 });
 
 // LOGIN POST REQUEST
-router.post("/login", async (req, res) => {
+router.post("/", async (req, res) => {
   console.log("Hello");
   // FIND USER
   const user = await User.find({ username: req.body.username });
@@ -48,7 +48,7 @@ router.post("/login", async (req, res) => {
       //SAVE INFO IN SESSION THAT USER IS LOGGEDIN AND USERNAME
       req.session.login = true;
       req.session.username = user[0].username;
-      res.redirect("/");
+      res.redirect(`/home/${user[0]._id}`);
     } else {
       // Redirect to login page if failed
       res.render("auth/fail.jsx");
@@ -64,6 +64,8 @@ router.get("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/");
 });
+
+
 
 ///////////////////////////////////////
 // Export Router

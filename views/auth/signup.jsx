@@ -1,18 +1,24 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
 
-class Index extends React.Component {
+class SignUp extends React.Component {
   render() {
     return (
       <Layout title="SIGNUP">
-        <form action="/auth/signup" method="post">
-          <input type="text" name="username" placeholder="username" />
-          <input type="password" name="password" placeholder="password" />
-          <input type="submit" value="signup" />
+        <form action="/signup" method="post">
+          <div className="form-group">
+          <label>User Name: </label>
+          <input type="text" className="form-control" name="username" placeholder="username" />
+          </div>
+          <div className="form-group">
+          <label>Password: </label>
+          <input type="password" className="form-control" name="password" placeholder="password" />
+          </div>
+          <input type="submit" class="btn btn-primary" value="Sign Up" />
         </form>
       </Layout>
     );
   }
 }
 
-module.exports = Index;
+module.exports = SignUp;
