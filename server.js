@@ -58,9 +58,11 @@ app.use(morgan("tiny")); //logging
 //   res.render("index.jsx", { hello: "Hello World" });
 // });
 
+app.use(methodOverride("_method"))
+
 app.use("/", authRouter);
 app.use("/test", testRouter);
-app.use("/home", homeRouter);
+app.use("/profile", homeRouter);
 
 ////////////////////////
 //APP LISTENER

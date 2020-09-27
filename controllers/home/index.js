@@ -16,12 +16,25 @@ const router = Router();
 ///////////////////////////////////////
 
 // USER HOME PAGE
-router.get("/:id", auth, (req, res)=>{
-    User.findById(req.params.id, (error, foundUser)=> {
-        res.render("profile.jsx", {
-           user: foundUser,
-           index: req.params.id
+router.get("/", auth, (req, res)=>{
+        res.render("profile.jsx", { 
+            user: req.session
+        })
+})
+
+//UPDATE
+
+router.put("/", auth, (req,res)=>{
+    User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
+        res.redirect("/profile")
     })
+})
+
+//EDIT
+
+router.get("/edit", auth, (req, res)=> {
+        res.render("profile/edit.jsx", {
+            user: req.session
     })
 })
 

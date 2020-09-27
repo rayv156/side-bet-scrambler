@@ -47,8 +47,12 @@ router.post("/", async (req, res) => {
     if (check) {
       //SAVE INFO IN SESSION THAT USER IS LOGGEDIN AND USERNAME
       req.session.login = true;
+      req.session._id = user[0]._id;
       req.session.username = user[0].username;
-      res.redirect(`/home/${user[0]._id}`);
+      req.session.firstName = user[0].firstName;
+      req.session.lastName = user[0].lastName;
+      req.session.handicap = user[0].handicap;
+      res.redirect(`/profile`);
     } else {
       // Redirect to login page if failed
       res.render("auth/fail.jsx");
