@@ -16,17 +16,17 @@ class SignUp extends React.Component {
           </div>
           <div className="form-group">
           <label>First Name: </label>
-          <input type="text" className="form-control" name="password" placeholder="first name" />
+          <input type="text" className="form-control" name="firstName" placeholder="first name" />
           </div>
           <div className="form-group">
           <label>Last Name: </label>
-          <input type="text" className="form-control" name="password" placeholder="last name" />
+          <input type="text" className="form-control" name="lastName" placeholder="last name" />
           </div>
           <div className="form-group">
           <label>Handicap: </label>
-          <input type="text" className="form-control" name="handicap" placeholder="handicap" />
+          <input type="number" className="form-control" name="handicap" placeholder="handicap" />
           </div>
-          <input type="submit" class="btn btn-primary" value="Sign Up" />
+          <input type="submit" className="btn btn-primary" value="Sign Up" />
         </form>
       </Layout>
     );
