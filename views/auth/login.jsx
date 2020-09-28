@@ -1,10 +1,10 @@
 const React = require("react");
-const Layout = require("../layout.jsx");
+const Index = require("../index.jsx");
 
 class Login extends React.Component {
   render() {
     return (
-      <Layout title="LOGIN">
+      <Index title="LOGIN">
         <form action="/" method="post">
           <div className="form-group">
           <label>User Name: </label> 
@@ -17,7 +17,7 @@ class Login extends React.Component {
           <input type="submit" className="btn btn-success" value="Log in"/>
         </form>
         <a href="/signup"><button type="button" class="btn btn-primary" id="signup">Sign Up</button></a>
-      </Layout>
+      </Index>
     );
   }
 }

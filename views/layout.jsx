@@ -10,6 +10,7 @@ class Layout extends React.Component {
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous"/>
           <script src='https://kit.fontawesome.com/a076d05399.js'></script>
           <script src="/js/app.js"></script>
+          <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
       </head>
       <body>
           <header>
@@ -25,7 +26,10 @@ class Layout extends React.Component {
                           <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                           </li>
                           <li className="nav-item">
-                          <a className="nav-link" href="/new">Start A Round</a>
+                          <a className="nav-link" href="/profile/edit">Edit Account</a>
+                          </li>
+                          <li className="nav-item">
+                          <a className="nav-link" href="/logout">Log Out</a>
                           </li>
                       </ul>
                   </div>

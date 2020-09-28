@@ -5,6 +5,7 @@ const { Router } = require("express");
 const bcrypt = require("bcryptjs");
 const User = require("../../models/auth");
 const auth = require("../authmiddleware");
+const Course = require("../../models/course")
 
 ///////////////////////////////////////
 // CREATE ROUTER
@@ -15,11 +16,14 @@ const router = Router();
 // ROUTES
 ///////////////////////////////////////
 
-// USER HOME PAGE
+// USER HOME PAGE w modal
 router.get("/", auth, (req, res)=>{
-        res.render("profile.jsx", { 
-            user: req.session
+    Course.find({}, (error, allCourses)=>{
+        res.render('profile/profile.jsx', {
+            user: req.session,
+            course: allCourses
         })
+    })
 })
 
 //UPDATE

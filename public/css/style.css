@@ -1,9 +1,59 @@
 
 main {
-    padding: 50px;
+    padding: 30px;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 #signup {
     position: relative;
     margin-top: 20px;
 }
+
+h4 {
+    z-index: 0;
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 5px;
+    color: white;
+}
+
+img {
+    width: 250px;
+    border-radius: 5px;
+    height: 200px;
+}
+
+
+.text-my-own-color {
+    color: white;
+
+}
+.text-my-own-color:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.box {
+    border-radius: 5px;
+    width: 250px;
+    height: 200px;
+    background-color: rgba(0,0,0,.8);
+    margin: 20px;
+}
+
+.box:hover {
+    transform: scale(1.05)
+}
+
+#new-round {
+    color: white;
+}
+
+

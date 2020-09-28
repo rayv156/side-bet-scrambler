@@ -19,7 +19,8 @@ const mongoose = require("./db/dbconn");
 // ROUTERS
 const authRouter = require("./controllers/auth");
 const testRouter = require("./controllers/test");
-const homeRouter = require("./controllers/home")
+const profileRouter = require("./controllers/profile")
+const courseRouter = require("./controllers/course")
 
 // OTHER IMPORTS
 const session = require("express-session");
@@ -63,7 +64,8 @@ app.use(methodOverride("_method"))
 
 app.use("/", authRouter);
 app.use("/test", testRouter);
-app.use("/profile", homeRouter);
+app.use("/profile", profileRouter);
+app.use("/profile/newround", courseRouter);
 
 ////////////////////////
 //APP LISTENER
