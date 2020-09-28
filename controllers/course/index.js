@@ -3,8 +3,8 @@
 /////////////////////////////////
 const { Router } = require("express");
 const bcrypt = require("bcryptjs");
-const Course = require("/Users/rayvelasquez/Projects/Project_2/side-bet-scrambler/models/course/index.js");
-const test = require("/Users/rayvelasquez/Projects/Project_2/side-bet-scrambler/models/course/test.js")
+const Course = require("../../models/course/index.js");
+const test = require("../../models/course/test.js")
 const auth = require("../authmiddleware");
 // // IMPORT DATABASE CONNECTIONS
 // const mongoose = require("mongoose");
