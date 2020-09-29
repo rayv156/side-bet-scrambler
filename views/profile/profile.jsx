@@ -27,7 +27,7 @@ class Profile extends React.Component {
       <form action="/profile?_method=PUT" method="post">
           <div className="form-group">
           <label>Pick a Course</label> 
-          <select className="form-control">
+          <select name="currentCourse" className="form-control">
           {course.map((courses)=>{
             return ( <option value={courses.name}>{courses.name}</option>
             )

@@ -13,6 +13,7 @@ const userSchema = new Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: false },
   handicap: { type: Number, required: false},
+  currentCourse: { type: String, required: false}
 });
 
 ////////////////////////////////////

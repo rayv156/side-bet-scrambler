@@ -52,6 +52,7 @@ router.post("/", async (req, res) => {
       req.session.firstName = user[0].firstName;
       req.session.lastName = user[0].lastName;
       req.session.handicap = user[0].handicap;
+      req.session.currentCourse = user[0].currentCourse;
       res.redirect(`/profile`);
     } else {
       // Redirect to login page if failed

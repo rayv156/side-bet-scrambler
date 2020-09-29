@@ -434,7 +434,7 @@ const courseSchema = new Schema({
 ////////////////////////////////////
 // CREATE MODEL
 ////////////////////////////////////
-const Course = model("course", courseSchema);
+const Course = model("courses", courseSchema);
 
 ////////////////////////////////////
 // EXPORT MODEL

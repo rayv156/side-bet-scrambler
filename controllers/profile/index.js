@@ -26,12 +26,25 @@ router.get("/", auth, (req, res)=>{
     })
 })
 
+//NEW
+
+router.get('/newround', auth, (req, res)=>{
+    Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+        console.log(foundCourse)
+        res.render("profile/newround.jsx", {
+            user: req.session,
+            course: foundCourse
+        })
+    })
+})
+
 //UPDATE
 
 router.put("/", auth, (req,res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
-        res.redirect("/profile")
+        res.redirect("/profile/newround")
     })
+    
 })
 
 //EDIT
