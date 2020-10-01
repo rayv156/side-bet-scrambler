@@ -16,6 +16,8 @@ const createRound = (user) => {
   }
 
 
+
+
 class NewRound extends React.Component {
   render() {
       const {user, course, user1} = this.props
@@ -24,7 +26,7 @@ class NewRound extends React.Component {
         for (let i=0; i<=8; i++){
             sum1 += Number(user.round[i])
         }
-      for (let i=10; i<18; i++){
+      for (let i=10; i<=18; i++){
           sum2 += Number(user.round[i])
       }
     return (

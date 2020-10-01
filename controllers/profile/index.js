@@ -21,7 +21,7 @@ const router = Router();
 router.get("/", auth, (req, res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
     Course.find({}, (error, allCourses)=>{
-        Round.find({}, (error, allRounds)=>{
+        Round.find({user: req.session.username}, (error, allRounds)=>{
             res.render('profile/profile.jsx', {
                 user: updateModel,
                 course: allCourses,
@@ -62,9 +62,9 @@ router.get('/newround', auth, (req, res)=>{
 
 //DELETE
 
-router.delete('/:id', (req,res)=>{
-    Round.findByIdAndRemove(req.params.id, (error, foundProduct)=>{
-        res.redirect("/")
+router.delete('/history/:id', (req,res)=>{
+    Round.findByIdAndRemove(req.params.id, (error, foundRound)=>{
+        res.redirect("/profile/history")
     })
 })
 
@@ -96,9 +96,6 @@ router.put("/newround", auth, (req,res)=>{
 //CREATE
 router.post('/summary', async (req, res)=>{
     Round.create(req.body, (error, createdRound)=>{
-        console.log(req.body)
-        console.log(error)
-        console.log(createdRound)
         res.redirect("/profile");
     });
 });
@@ -113,10 +110,19 @@ router.get("/edit", auth, (req, res)=> {
 
 //SHOW
 router.get("/history", auth, (req, res)=>{
-    Round.find({}, (error, allRounds)=>{
+    Round.find({user: req.session.username}, (error, allRounds)=>{
         res.render('profile/history.jsx', {
             user: req.session,
             round: allRounds
+        })
+    })
+})
+
+router.get("/history/:id", auth, (req, res)=>{
+    Round.findById(req.params.id, (error, foundRound)=>{
+        res.render('history/show.jsx', {
+            user: req.session,
+            round: foundRound
         })
     })
 })
