@@ -15,6 +15,38 @@ const createRound = (user) => {
     }
   }
 
+const checkGuest = (user) => {
+    if (user.name.length > 0 || user.name === ""){
+       return ( 
+       <>
+       <tr>
+      <th scope="row">{user.name}</th>
+      {user.round.map((item)=>{
+          
+          return (
+              <td>{item}</td>
+          )
+        })}
+        </tr>
+        </>
+      )
+      } else {
+      }
+}
+
+const checkGuestPartTwo = (user, num, index) => {
+    if (user.name.length > 0 || user.name === ""){
+       return ( 
+       <>
+       <h6>{user.name}: <select name={`${"guest"+num}[round][]`}><option>{user.round[index]}</option>{optionLoop()}</select></h6>
+        </>
+      )
+      } else {
+      }
+}
+
+
+
 
 
 
@@ -33,7 +65,8 @@ class NewRound extends React.Component {
       <Layout title="Side-Bet Scrambler">
           <h3>{new Date().toLocaleDateString()}</h3>
           <h1>{course.name}</h1>
-          <div className="table-responsive">
+          <button className="btn btn-dark btn-lg btn-block"  aria-expanded="true" data-toggle="collapse" data-target="#fullscore">Scorecard</button>
+          <div className="table-responsive" className="collapse" id="fullscore">
         <table className="table">
         <thead className="thead-dark">
             <tr>
@@ -82,7 +115,12 @@ class NewRound extends React.Component {
       
       
     </tr>
-    
+
+      {/* {checkGuest(user.guest1)}
+      {checkGuest(user.guest2)}
+      {checkGuest(user.guest3)}
+      {checkGuest(user.guest4)} */}
+
   </tbody>
 </table>
 </div>
@@ -101,6 +139,15 @@ class NewRound extends React.Component {
             <div className="d-flex flex-column justify-content-between eachhole" style={{backgroundColor: "black"},{color: "white"},{padding: 20}}>
             <h5>HOLE: {item.hole}</h5>
             <h6>{user.firstName}: <select name="round[]"><option>{user.round[index]}</option>{optionLoop()}</select></h6>
+            {/* <input type="hidden" name="guest1[name]" value={user}></input>
+            {checkGuestPartTwo(user.guest1, "1", index)}
+            <input type="hidden" name="guest2[name]" value={user}></input>
+            {checkGuestPartTwo(user.guest2, "2", index)}
+            <input type="hidden" name="guest3[name]" value={user}></input>
+            {checkGuestPartTwo(user.guest3, "3", index)}
+            <input type="hidden" name="guest4[name]" value={user}></input>
+            {checkGuestPartTwo(user.guest4, "4", index)} */}
+
             </div>
             </>
 

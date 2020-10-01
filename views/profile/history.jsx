@@ -8,9 +8,10 @@ const noHistory = (object, item) =>{
     if (object.length>0){
         return (
             <div className="history-cards">
+                
                 <h3>{item.course}</h3>
                 <h6>{item.date}</h6>
-                <h3>{item.round[20]}</h3>
+                <h3>Total Score: {item.round[20]}</h3>
 
             </div>
         )
@@ -24,11 +25,12 @@ class History extends React.Component {
         const {user, round} = this.props
       return (
         <Layout title="Side-Bet Scrambler">
+            <a href="/profile"><i class="fas fa-arrow-alt-circle-left"></i>Back</a>
             {round.map((item)=>{
                 return (
             <div id="history-container">
                 {noHistory(round, item)}
-                <a href={`/profile/history/${item._id}`}><button>View Round</button></a>
+                <a href={`/profile/history/${item._id}`}><button className="btn btn-success btn-lg btn-block">View Round</button></a>
             </div>
         )
         })}

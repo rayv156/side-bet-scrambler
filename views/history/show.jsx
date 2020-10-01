@@ -9,6 +9,7 @@ class Show extends React.Component {
       return (
         <Layout title="Side-Bet Scrambler">
              <>
+             <a href="/profile/history"><i class="fas fa-arrow-alt-circle-left"></i>Back</a>
                 <h3>{round.course}</h3>
                 <h6>{round.date}</h6>
                 <form action={`/profile/history/${round._id}?_method=DELETE`} method="POST">

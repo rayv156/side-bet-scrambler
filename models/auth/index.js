@@ -14,7 +14,23 @@ const userSchema = new Schema({
   lastName: { type: String, required: false },
   handicap: { type: Number, required: false},
   currentCourse: { type: String, required: false},
-  round: {type: Array}
+  round: {type: Array},
+  guest1: {
+    name: {type: String},
+    round: {type: Array},
+  },
+  guest2: {
+    name: {type: String},
+    round: {type: Array},
+  },
+  guest3: {
+    name: {type: String},
+    round: {type: Array},
+  },
+  guest4: {
+    name: {type: String},
+    round: {type: Array},
+  }
 });
 
 ////////////////////////////////////
