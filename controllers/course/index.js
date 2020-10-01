@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const Course = require("../../models/course/index.js");
 const test = require("../../models/course/test.js")
 const auth = require("../authmiddleware");
+const User = require("../../models/auth");
 // // IMPORT DATABASE CONNECTIONS
 // const mongoose = require("mongoose");
 // const mongoURI = "mongodb+srv://rayv156:1234@sei.hyibv.mongodb.net/side-bet-scrambler?retryWrites=true&w=majority";
@@ -39,7 +40,7 @@ const router = Router();
 
 // USER HOME PAGE
 router.get("/", auth, (req, res)=>{
-        res.render("profile/profile.jsx", { 
+        res.render("profile/newround.jsx", { 
             user: req.session
         })
 })
@@ -47,17 +48,18 @@ router.get("/", auth, (req, res)=>{
 //UPDATE
 
 router.put("/", auth, (req,res)=>{
-    Course.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
-        res.redirect("/profile")
+    User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
+        res.redirect("/profile/newround")
     })
+    
 })
 
-//EDIT
+// //EDIT
 
-router.get("/edit", auth, (req, res)=> {
-        res.render("profile/edit.jsx", {
-            user: req.session
-    })
-})
+// router.get("/edit", auth, (req, res)=> {
+//         res.render("profile/edit.jsx", {
+//             user: req.session
+//     })
+// })
 
 module.exports = router

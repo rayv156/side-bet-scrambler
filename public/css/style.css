@@ -56,5 +56,32 @@ img {
     color: white;
 }
 
+#score {
+    width: 10px;
+}
+
+th:first-child {
+    position: sticky;
+    left: 0px;
+    z-index: 2;
+
+}
+
+.d-flex.flex-column.justify-content-between.eachhole {
+    padding: 20px;
+    height: 250px;
+    width: 250px;
+}
+
+#eachhole {
+    
+    padding: 50px;
+    width: 250px;
+}
+
+.btn.btn-danger.btn-lg.btn-block {
+    margin: 20px;
+}
+
 
 

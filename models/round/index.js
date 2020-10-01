@@ -7,22 +7,18 @@ const { Schema, model } = require("mongoose");
 // CREATE SCHEMA
 ////////////////////////////////////
 
-const userSchema = new Schema({
+const roundSchema = new Schema({
   username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: false },
-  handicap: { type: Number, required: false},
-  currentCourse: { type: String, required: false},
-  round: {type: Array}
+  course: { type: String, required: false},
+  round: { type: Array }
 });
 
 ////////////////////////////////////
 // CREATE MODEL
 ////////////////////////////////////
-const User = model("user", userSchema);
+const Round = model("rounds", roundSchema);
 
 ////////////////////////////////////
 // EXPORT MODEL
 ////////////////////////////////////
-module.exports = User;
+module.exports = Round;

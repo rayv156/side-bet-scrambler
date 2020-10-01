@@ -1,6 +1,8 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
 
+
+
 class Profile extends React.Component {
   render() {
       const {user, course} = this.props
@@ -27,13 +29,12 @@ class Profile extends React.Component {
       <form action="/profile?_method=PUT" method="post">
           <div className="form-group">
           <label>Pick a Course</label> 
-          <select name="currentCourse" className="form-control">
+          <select name="course" className="form-control">
           {course.map((courses)=>{
             return ( <option value={courses.name}>{courses.name}</option>
             )
           })}
           </select>
-
           </div>
           
           <input type="submit" className="btn btn-success" value="Continue"/>

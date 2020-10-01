@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const User = require("../../models/auth");
 const auth = require("../authmiddleware");
 const Course = require("../../models/course")
+const Round = require("../../models/round")
 
 ///////////////////////////////////////
 // CREATE ROUTER
@@ -26,18 +27,31 @@ router.get("/", auth, (req, res)=>{
     })
 })
 
-//NEW
-
-router.get('/newround', auth, (req, res)=>{
-    Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
-        console.log(foundCourse)
-        res.render("profile/newround.jsx", {
-            user: req.session,
-            course: foundCourse
+router.get("/summary", auth, (req, res)=>{
+    User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
+        Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+            res.render("profile/summary.jsx", {
+                user: updateModel,
+                course: foundCourse
+            })
         })
     })
 })
 
+
+//NEW
+
+router.get('/newround', auth, (req, res)=>{
+    User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
+        Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+            res.render("profile/newround.jsx", {
+                user: updateModel,
+                course: foundCourse
+            })
+        })
+    })
+    
+})
 //UPDATE
 
 router.put("/", auth, (req,res)=>{
@@ -46,6 +60,27 @@ router.put("/", auth, (req,res)=>{
     })
     
 })
+
+router.put("/newround", auth, (req,res)=>{
+    User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
+        Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+            res.render("profile/newround.jsx", {
+                user: updateModel,
+                course: foundCourse
+            })
+        })
+    })
+    
+})
+
+
+//CREATE
+router.post('/summary', (req, res)=>{
+    Round.create(req.body, (error, createdRound)=>{
+        console.log(createdRound)
+        res.redirect("/profile");
+    });
+});
 
 //EDIT
 
