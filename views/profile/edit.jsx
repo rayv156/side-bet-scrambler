@@ -24,7 +24,7 @@ class Edit extends React.Component {
           <label>Handicap: </label>
           <input type="text" className="form-control" name="handicap" value={user.handicap} />
           </div>
-          <input type="submit" class="btn btn-primary" value="Update" />
+          <input type="submit" className="btn btn-primary" value="Update" />
         </form>
                
             </Layout>

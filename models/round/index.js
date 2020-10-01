@@ -8,8 +8,9 @@ const { Schema, model } = require("mongoose");
 ////////////////////////////////////
 
 const roundSchema = new Schema({
-  username: { type: String, required: true, unique: true },
-  course: { type: String, required: false},
+  user: { type: String, required: true },
+  course: { type: String, required: true }, 
+  date: { type: String, required: true },
   round: { type: Array }
 });
 

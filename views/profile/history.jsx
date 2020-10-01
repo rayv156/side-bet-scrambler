@@ -1,6 +1,8 @@
 const React = require("react");
 // const { create } = require("../../models/user.js");
 const Layout = require("../layout.jsx");
+const outArr = [1,2,3,4,5,6,7,8,9]
+const inArr = [10,11,12,13,14,15,16,17,18]
 const createOUT = () => {
     for (let i=0; i<=8; i++){
     return <th scope="col">{i}</th>
@@ -16,20 +18,27 @@ const createOUT = () => {
 
 class History extends React.Component {
     render() {
-        const {user, round, user1} = this.props
+        const {user, round} = this.props
       return (
         <Layout title="Side-Bet Scrambler">
-            {round.map((item)=>{<>
-                <h1>{item.course}</h1>
+            {console.log(round)}
+            {round.map((item)=>{
+            return ( <>
+                <h3>{item.course}</h3>
+                <h6>{item.date}</h6>
             <div className="table-responsive">
           <table className="table">
           <thead className="thead-dark">
               <tr>
                   <th scope="col" id="fixed">HOLE</th>
-                {createIN()}
-                <th scope="col">IN</th>
-                {createOUT()}
+                {outArr.map((item)=>{
+                    return <th scope="col">{item}</th>
+                })}
                 <th scope="col">OUT</th>
+                {inArr.map((item)=>{
+                    return <th scope="col">{item}</th>
+                })}
+                <th scope="col">IN</th>
                 <th scope="col">TOT</th>
     </tr>
    
@@ -38,6 +47,7 @@ class History extends React.Component {
     <tbody>
       <tr>
         <th scope="row">{user.firstName}</th>
+        {console.log(item.round)}
         {item.round.map((item)=>{
             return (
                 <td>{item}</td>
@@ -49,7 +59,9 @@ class History extends React.Component {
       
     </tbody>
   </table>
+
   </div></>
+            )
             })}
             
   

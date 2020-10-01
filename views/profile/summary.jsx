@@ -1,10 +1,5 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
-const createRound = (user) => {
-    for (let i=0; i<21; i++){
-    <input type="hidden" name="round[]" value={user.round[i]}></input>
-    }
-  }
 
 
 class Summary extends React.Component {
@@ -68,14 +63,15 @@ class Summary extends React.Component {
     </tbody>
   </table>
   </div>
-  <form action="/profile/history" method="POST">
+  <form action="/profile/summary" method="POST">
 
         
-        <input type="hidden" name="username" value={user.username}></input>
+        <input type="hidden" name="user" value={user.username}></input>
         <input type="hidden" name="course" value={course.name}></input>
-        {console.log(user.round)}
+        <input type="hidden" name="date" value={new Date()}></input>
+        {/* {console.log(user.round)}
         {console.log(user.username)}
-        {console.log(course.name)}
+        {console.log(course.name)} */}
         {user.round.map((item)=>{
             return (
             <input type="hidden" name="round[]" value={item}></input>

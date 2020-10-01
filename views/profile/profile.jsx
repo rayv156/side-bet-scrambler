@@ -1,11 +1,17 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
 
+const displayRound = (object) =>{
+  if (object.length>0){
+    return (<h3>Previous Round: {object[0].round[20]}</h3>)
+  } else {
 
+  }
+}
 
 class Profile extends React.Component {
   render() {
-      const {user, course} = this.props
+      const {user, course, round} = this.props
     return (
       <Layout title="Side-Bet Scrambler">
         <h1>Home</h1>
@@ -13,6 +19,7 @@ class Profile extends React.Component {
         <a className="text-my-own-color" href='/profile/history'><div className="box">
           <h3>{user.firstName} {user.lastName}</h3>
           <h3>Handicap: {user.handicap}</h3>
+          {displayRound(round)}
           </div></a>
         <a className="text-my-own-color" data-toggle="modal" data-target="#exampleModalCenter"><div className="box"><h4 id="new-round">Start a New Round</h4><img src="https://www.ravinesgolfclub.com/images/Ravines_918-4114RT.jpg"/></div></a>
         </div>

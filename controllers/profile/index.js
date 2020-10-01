@@ -21,9 +21,12 @@ const router = Router();
 router.get("/", auth, (req, res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
     Course.find({}, (error, allCourses)=>{
-        res.render('profile/profile.jsx', {
-            user: updateModel,
-            course: allCourses
+        Round.find({}, (error, allRounds)=>{
+            res.render('profile/profile.jsx', {
+                user: updateModel,
+                course: allCourses,
+                round: allRounds
+        })
         })
     })
 })
@@ -40,14 +43,7 @@ router.get("/summary", auth, (req, res)=>{
     })
 })
 
-router.get("/history", auth, (req, res)=>{
-    Round.find({}, (error, allRounds)=>{
-        res.render('profile/history.jsx', {
-            user: req.session,
-            round: allRounds
-        })
-    })
-})
+
 
 
 //NEW
@@ -63,6 +59,18 @@ router.get('/newround', auth, (req, res)=>{
     })
     
 })
+
+//DELETE
+
+router.delete('/:id', (req,res)=>{
+    Round.findByIdAndRemove(req.params.id, (error, foundProduct)=>{
+        res.redirect("/")
+    })
+})
+
+
+
+
 //UPDATE
 
 router.put("/", auth, (req,res)=>{
@@ -86,8 +94,9 @@ router.put("/newround", auth, (req,res)=>{
 
 
 //CREATE
-router.post('/history', (req, res)=>{
+router.post('/summary', async (req, res)=>{
     Round.create(req.body, (error, createdRound)=>{
+        console.log(req.body)
         console.log(error)
         console.log(createdRound)
         res.redirect("/profile");
@@ -99,6 +108,16 @@ router.post('/history', (req, res)=>{
 router.get("/edit", auth, (req, res)=> {
         res.render("profile/edit.jsx", {
             user: req.session
+    })
+})
+
+//SHOW
+router.get("/history", auth, (req, res)=>{
+    Round.find({}, (error, allRounds)=>{
+        res.render('profile/history.jsx', {
+            user: req.session,
+            round: allRounds
+        })
     })
 })
 
