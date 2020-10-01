@@ -19,21 +19,32 @@ const router = Router();
 
 // USER HOME PAGE w modal
 router.get("/", auth, (req, res)=>{
+    User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
     Course.find({}, (error, allCourses)=>{
         res.render('profile/profile.jsx', {
-            user: req.session,
+            user: updateModel,
             course: allCourses
         })
     })
 })
+})
 
 router.get("/summary", auth, (req, res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
-        Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+        Course.findOne({name: updateModel.currentCourse}, (err, foundCourse)=>{
             res.render("profile/summary.jsx", {
                 user: updateModel,
                 course: foundCourse
             })
+        })
+    })
+})
+
+router.get("/history", auth, (req, res)=>{
+    Round.find({}, (error, allRounds)=>{
+        res.render('profile/history.jsx', {
+            user: req.session,
+            round: allRounds
         })
     })
 })
@@ -43,7 +54,7 @@ router.get("/summary", auth, (req, res)=>{
 
 router.get('/newround', auth, (req, res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
-        Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+        Course.findOne({name: updateModel.currentCourse}, (err, foundCourse)=>{
             res.render("profile/newround.jsx", {
                 user: updateModel,
                 course: foundCourse
@@ -63,7 +74,7 @@ router.put("/", auth, (req,res)=>{
 
 router.put("/newround", auth, (req,res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
-        Course.findOne({name: req.session.currentCourse}, (err, foundCourse)=>{
+        Course.findOne({name: updateModel.currentCourse}, (err, foundCourse)=>{
             res.render("profile/newround.jsx", {
                 user: updateModel,
                 course: foundCourse
@@ -75,8 +86,9 @@ router.put("/newround", auth, (req,res)=>{
 
 
 //CREATE
-router.post('/summary', (req, res)=>{
+router.post('/history', (req, res)=>{
     Round.create(req.body, (error, createdRound)=>{
+        console.log(error)
         console.log(createdRound)
         res.redirect("/profile");
     });

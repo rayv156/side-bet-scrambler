@@ -1,5 +1,6 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
+
 const optionLoop = () => {
     let option = []
     for (let i=1; i<10; i++){
@@ -18,6 +19,14 @@ const createRound = (user) => {
 class NewRound extends React.Component {
   render() {
       const {user, course, user1} = this.props
+      let sum1 = 0
+      let sum2 = 0
+        for (let i=0; i<=8; i++){
+            sum1 += Number(user.round[i])
+        }
+      for (let i=10; i<18; i++){
+          sum2 += Number(user.round[i])
+      }
     return (
       <Layout title="Side-Bet Scrambler">
           <h3>{new Date().toLocaleDateString()}</h3>
@@ -77,17 +86,14 @@ class NewRound extends React.Component {
 </div>
     <form action="/profile/newround?_method=PUT" method="post">
 <div className="d-flex table-responsive" id="holes">
+ 
     {course.tees.black.map((item, index)=>{
         if (index === 9){
-            return <input type="hidden" name="round[]" value={user.round.splice(0,9).reduce((sum, num)=>{
-                return sum += Number(num)
-            },0)}></input>
+            return <input type="hidden" name="round[]" value={sum1}></input>
         } if(index === 19){
-            return <input type="hidden" name="round[]" value={user.round.splice(9,9).reduce((sum, num)=>{
-                return sum += Number(num)
-            },0)}></input>
+            return <input type="hidden" name="round[]" value={sum2}></input>
         } if(index === 20) {
-            return <input type="hidden" name="round[]" value={user.round[9]+user.round[19]}></input>
+            return <input type="hidden" name="round[]" value={sum1+sum2}></input>
         }else{
             return <>
             <div className="d-flex flex-column justify-content-between eachhole" style={{backgroundColor: "black"},{color: "white"},{padding: 20}}>
@@ -108,7 +114,7 @@ class NewRound extends React.Component {
     <br></br>
     <br></br>
 
-    {/* <form action="/profile/newround" method="POST">
+    {/* <form action="/profile/history" method="POST">
 
         
     <input type="hidden" name="username" value={user.username}></input>
@@ -117,8 +123,8 @@ class NewRound extends React.Component {
     return <input type="hidden" name="round[]" value={item}></input>
         })}
     <input type="submit" className="btn btn-danger btn-lg btn-block" value="Complete Round"/>
-    </form>
-     */}
+    </form> */}
+    
         <a href="/profile/summary"><button type="submit" className="btn btn-danger btn-lg btn-block" value="Complete Round">Complete Round</button></a>
     
 

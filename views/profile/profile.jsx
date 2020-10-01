@@ -10,7 +10,7 @@ class Profile extends React.Component {
       <Layout title="Side-Bet Scrambler">
         <h1>Home</h1>
         <div id="container">
-        <a className="text-my-own-color" href='/profile/history/edit'><div className="box">
+        <a className="text-my-own-color" href='/profile/history'><div className="box">
           <h3>{user.firstName} {user.lastName}</h3>
           <h3>Handicap: {user.handicap}</h3>
           </div></a>
@@ -29,7 +29,7 @@ class Profile extends React.Component {
       <form action="/profile?_method=PUT" method="post">
           <div className="form-group">
           <label>Pick a Course</label> 
-          <select name="course" className="form-control">
+          <select name="currentCourse" className="form-control">
           {course.map((courses)=>{
             return ( <option value={courses.name}>{courses.name}</option>
             )

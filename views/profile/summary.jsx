@@ -68,13 +68,18 @@ class Summary extends React.Component {
     </tbody>
   </table>
   </div>
-  <form action="/profile/summary" method="POST">
+  <form action="/profile/history" method="POST">
 
         
         <input type="hidden" name="username" value={user.username}></input>
         <input type="hidden" name="course" value={course.name}></input>
+        {console.log(user.round)}
+        {console.log(user.username)}
+        {console.log(course.name)}
         {user.round.map((item)=>{
-            return <input type="hidden" name="round[]" value={item}></input>
+            return (
+            <input type="hidden" name="round[]" value={item}></input>
+            )
         })}
         <input type="submit" className="btn btn-danger btn-lg btn-block" value="Complete Round"/>
     </form>
