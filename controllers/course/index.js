@@ -7,7 +7,7 @@ const Course = require("../../models/course/index.js");
 const test = require("../../models/course/test.js")
 const auth = require("../authmiddleware");
 const User = require("../../models/auth");
-// // IMPORT DATABASE CONNECTIONS
+// IMPORT DATABASE CONNECTIONS
 // const mongoose = require("mongoose");
 // const mongoURI = "mongodb+srv://rayv156:1234@sei.hyibv.mongodb.net/side-bet-scrambler?retryWrites=true&w=majority";
 // mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -29,14 +29,14 @@ const router = Router();
 // ROUTES
 ///////////////////////////////////////
 
-// Course.insertMany(test, (error, tests) => {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log(tests);
-//     }
-//     db.close();
-//   });
+Course.insertMany(test, (error, tests) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log(tests);
+    }
+    db.close();
+  });
 
 // USER HOME PAGE
 router.get("/", auth, (req, res)=>{

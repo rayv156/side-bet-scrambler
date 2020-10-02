@@ -11,12 +11,13 @@ class Index extends React.Component {
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossOrigin="anonymous"/>
           <script src='https://kit.fontawesome.com/a076d05399.js'></script>
           <script src="/js/app.js"></script>
+          <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet"/>
           <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
       </head>
       <body>
           <header>
-              <nav className="navbar navbar-dark bg-success"> 
-                  <a className="navbar-brand" href="/">Side-Bet Scrambler <i class='fas fa-golf-ball'></i></a>
+              <nav className="navbar navbar-dark bg-dark"> 
+              <a className="navbar-brand" href="/"><span className="brand">Side-Bet Scrambler </span><i class='fas fa-golf-ball'></i></a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                   </button>

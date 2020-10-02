@@ -3,7 +3,7 @@ const Layout = require("../layout.jsx");
 
 const displayRound = (object) =>{
   if (object.length>0){
-    return (<h3>Previous Round: {object[0].round[20]}</h3>)
+    return (<h3>Previous Round: {object[object.length-1].round[20]}</h3>)
   } else {
 
   }
@@ -15,8 +15,9 @@ class Profile extends React.Component {
     return (
       <Layout title="Side-Bet Scrambler">
         <h1>Home</h1>
+        <a className="text-my-own-color" id="startroundbutton" data-toggle="modal" data-target="#exampleModalCenter"><div>
+        <button className="btn btn-dark"><i class="fas fa-plus-circle"></i>New Round</button></div></a>
         <div id="container">
-        <a className="text-my-own-color" data-toggle="modal" data-target="#exampleModalCenter"><button className="btn btn-success btn-lg btn-block"><i class="fas fa-plus-circle"></i>Start a New Round</button></a>
 
         <a className="text-my-own-color" href='/profile/history'><div className="box">
           <h3>{user.firstName} {user.lastName}</h3>
@@ -24,7 +25,7 @@ class Profile extends React.Component {
           {displayRound(round)}
           
           </div></a>
-        <a className="text-my-own-color" href="/profile/newround"><div className="box"><h4 id="new-round">Continue Round</h4><img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"/></div></a>
+        <a className="text-my-own-color" href="/profile/newround"><div className="box cont-round"><h4 id="new-round">Continue Round</h4><img src="https://st.depositphotos.com/1526816/4223/v/450/depositphotos_42230665-stock-illustration-a-golf-course.jpg"/></div></a>
         </div>
         
         <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

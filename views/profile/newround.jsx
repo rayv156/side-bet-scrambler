@@ -66,7 +66,7 @@ class NewRound extends React.Component {
           <h3>{new Date().toLocaleDateString()}</h3>
           <h1>{course.name}</h1>
           <button className="btn btn-dark btn-lg btn-block"  aria-expanded="true" data-toggle="collapse" data-target="#fullscore">Scorecard</button>
-          <div className="table-responsive" className="collapse" id="fullscore">
+          <div className="table-responsive" id="fullscore">
         <table className="table">
         <thead className="thead-dark">
             <tr>
@@ -136,7 +136,7 @@ class NewRound extends React.Component {
             return <input type="hidden" name="round[]" value={sum1+sum2}></input>
         }else{
             return <>
-            <div className="d-flex flex-column justify-content-between eachhole" style={{backgroundColor: "black"},{color: "white"},{padding: 20}}>
+            <div className="d-flex flex-column justify-content-between btn-dark m-3 w-100" id="each-hole" style={{margin: 20},{padding: 20}, {borderRadius: 5}}>
             <h5>HOLE: {item.hole}</h5>
             <h6>{user.firstName}: <select name="round[]"><option>{user.round[index]}</option>{optionLoop()}</select></h6>
             {/* <input type="hidden" name="guest1[name]" value={user}></input>
