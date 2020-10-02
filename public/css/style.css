@@ -103,7 +103,7 @@ th:first-child {
     justify-content: flex-end;
 }
 
-.brand-title {
+span.brand-title {
     font-family: 'Calligraffitti', cursive;
 }
 
