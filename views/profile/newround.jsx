@@ -46,10 +46,6 @@ const checkGuestPartTwo = (user, num, index) => {
 }
 
 
-
-
-
-
 class NewRound extends React.Component {
   render() {
       const {user, course, user1} = this.props

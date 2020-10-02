@@ -26,7 +26,7 @@ class History extends React.Component {
       return (
         <Layout title="Side-Bet Scrambler">
             <a href="/profile"><i class="fas fa-arrow-alt-circle-left"></i>Back</a>
-            {round.map((item)=>{
+            {round.reverse().map((item)=>{
                 return (
             <div id="history-container">
                 {noHistory(round, item)}
