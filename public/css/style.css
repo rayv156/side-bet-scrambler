@@ -59,7 +59,7 @@ img {
 }
 
 #new-round {
-    color: black;
+    color: white;
     justify-content: center;
 }
 
@@ -108,7 +108,7 @@ span.brand-title {
 }
 
 .box.cont-round {
-    background-image: url("https://bdn-ss-fhf.s3.amazonaws.com/uploads/2016/08/Golf-Graphic-640x400.jpg");
+    color: white;
 }
 
 
