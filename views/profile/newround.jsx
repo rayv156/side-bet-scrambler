@@ -132,9 +132,9 @@ class NewRound extends React.Component {
             return <input type="hidden" name="round[]" value={sum1+sum2}></input>
         }else{
             return <>
-            <div className="d-flex flex-column justify-content-between btn-dark m-3 w-100" id="each-hole" style={{margin: 20},{padding: 20}, {borderRadius: 5}}>
+            <div className="d-flex flex-column justify-content-between m-3 col-3 bg-light border-dark card" id="each-hole" style={{margin: 20}, {borderRadius: 5}, {width: 500}}>
             <h5>HOLE: {item.hole}</h5>
-            <h6>{user.firstName}: <select name="round[]"><option>{user.round[index]}</option>{optionLoop()}</select></h6>
+            <h6>{user.firstName}: <select className="form-control" name="round[]"><option>{user.round[index]}</option>{optionLoop()}</select></h6>
             {/* <input type="hidden" name="guest1[name]" value={user}></input>
             {checkGuestPartTwo(user.guest1, "1", index)}
             <input type="hidden" name="guest2[name]" value={user}></input>

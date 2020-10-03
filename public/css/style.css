@@ -111,4 +111,12 @@ span.brand-title {
     color: white;
 }
 
+.card {
+    color: black;
+}
 
+@media (max-width: 750px) {
+body {
+    height: 850px;
+}
+}

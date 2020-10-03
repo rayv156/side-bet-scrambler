@@ -7,12 +7,15 @@ const inArr = [10,11,12,13,14,15,16,17,18]
 const noHistory = (object, item) =>{
     if (object.length>0){
         return (
-            <div className="history-cards">
-                
+            <div className="history-cards card bg-dark m-2 text-white border-dark">
+                <div className="card-header">
                 <h3>{item.course}</h3>
+                </div>
+                <div className="card-body">
                 <h6>{item.date}</h6>
                 <h3>Total Score: {item.round[20]}</h3>
-
+                <a href={`/profile/history/${item._id}`}><button className="btn btn-success btn-lg btn-block">View Round</button></a>
+                </div>
             </div>
         )
     } else {
@@ -30,7 +33,7 @@ class History extends React.Component {
                 return (
             <div id="history-container">
                 {noHistory(round, item)}
-                <a href={`/profile/history/${item._id}`}><button className="btn btn-success btn-lg btn-block">View Round</button></a>
+                
             </div>
         )
         })}
