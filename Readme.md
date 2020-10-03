@@ -1,28 +1,13 @@
-# Mongo - Express - Express React Views Template
+# Side Bet Scrambler
 
-## USING THIS TEMPLATE:
+## App Functionality:
 
-- Make sure to run npm install
+This web app uses Mongo || Express || Express React Views is a golf digital scorecard tracker with the ability to save and view previous rounds.  It also pulls the golf course info in from a collection that I have created on mongodb.  Each user has their own profile page that is rendered based on the user's data.  This will be a project that I continue to work on that will incorporate the side bets/wagers that generally come with a competitive golf round.
 
-- Environment Files are in a .env, create with your env variables. Here are some needed variables for this template to get you started. You can rename template.env into .env to get started.
+## Page Design:
 
-```
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/
-DB_NAME=myDatabase
-SECRET=cheese
-```
+- Utilizes Bootstrap and a number of it's features.  The scorecard is collapsible and also allows for scrolling in the x-direction.  The web app also utilizes two different layouts, one is for the login/signup pages and the other will show once logged in.
 
-## Commands
 
-`npm run dev` run dev server
 
-`npm run start` run in production more
 
-- For production you should add a store property to sessions that'll store the session in redis or mongo. See the express-session documentation to learn more.
-
-- session auth built in, the user model is in **models/auth** and the auth routes are in **controllers/auth**
-
-- If you want the connect.session() warning to go away you can configure a mongo session store using the following library => https://www.npmjs.com/package/connect-mongo
-
-MAKE SURE TO JOIN THE SLACK AND DISCORD COMMUNITIES AT DEVNURSERY.COM
