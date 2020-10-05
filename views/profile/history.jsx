@@ -6,6 +6,7 @@ const inArr = [10,11,12,13,14,15,16,17,18]
 
 const noHistory = (object, item) =>{
     if (object.length>0){
+        console.log(object)
         return (
             <div className="history-cards card bg-dark m-2 text-white border-dark">
                 <div className="card-header">

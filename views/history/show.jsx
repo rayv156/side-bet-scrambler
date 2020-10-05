@@ -3,21 +3,22 @@ const Layout = require("../layout.jsx");
 const outArr = [1,2,3,4,5,6,7,8,9]
 const inArr = [10,11,12,13,14,15,16,17,18]
 const checkGuest = (user) => {
-    if (user.name.length > 0){
-       return ( 
-       <>
-       <tr>
-      <th scope="row">{user.name}</th>
-      {user.round.map((item)=>{
-          
-          return (
-              <td>{item}</td>
-          )
-        })}
-        </tr>
-        </>
-      )
+    if (user.name === undefined || user.name.length === 0){
+       
       } else {
+        return ( 
+            <>
+            <tr>
+           <th scope="row">{user.name}</th>
+           {user.round.map((item)=>{
+               
+               return (
+                   <td>{item}</td>
+               )
+             })}
+             </tr>
+             </>
+        )
       }
 }
 

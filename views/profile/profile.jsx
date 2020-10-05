@@ -1,9 +1,22 @@
 const React = require("react");
 const Layout = require("../layout.jsx");
 
+const showContinueRound = (user) => {
+  if (user.currentCourse === undefined){
+
+  } else {
+    return (<a className="text-my-own-color" href="/profile/newround"><div className="box cont-round"><h4 id="new-round">Continue Round</h4><img src="https://st.depositphotos.com/1526816/4223/v/450/depositphotos_42230665-stock-illustration-a-golf-course.jpg"/></div></a>
+    )}
+}
+
 const displayRound = (object) =>{
   if (object.length>0){
-    return (<h3>Previous Round: {object[object.length-1].round[20]}</h3>)
+    return (
+    <><h3>Previous Round: {object[object.length-1].round[20]}</h3>
+    <h3>Average Score: {(object.reduce((sum, item)=>{
+      return sum += Number(item.round[20])/object.length
+    },0)).toFixed(2)}</h3>
+    </>)
   } else {
 
   }
@@ -25,7 +38,7 @@ class Profile extends React.Component {
           {displayRound(round)}
           
           </div></a>
-        <a className="text-my-own-color" href="/profile/newround"><div className="box cont-round"><h4 id="new-round">Continue Round</h4><img src="https://st.depositphotos.com/1526816/4223/v/450/depositphotos_42230665-stock-illustration-a-golf-course.jpg"/></div></a>
+        {showContinueRound(user)}
         </div>
         
         <div className="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
