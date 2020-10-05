@@ -2,6 +2,37 @@ const React = require("react");
 const Layout = require("../layout.jsx");
 const outArr = [1,2,3,4,5,6,7,8,9]
 const inArr = [10,11,12,13,14,15,16,17,18]
+const checkGuest = (user) => {
+    if (user.name.length > 0){
+       return ( 
+       <>
+       <tr>
+      <th scope="row">{user.name}</th>
+      {user.round.map((item)=>{
+          
+          return (
+              <td>{item}</td>
+          )
+        })}
+        </tr>
+        </>
+      )
+      } else {
+      }
+}
+
+const checkGuestPartTwo = (user, num) => {
+    if (user.name.length > 0){
+       return ( 
+           user.round.map((item)=>{
+        return ( <input type="hidden" name={`${"guest"+num+"[round][]"}`} value={item}></input>
+        )
+           })
+       )
+      } else {
+      }
+}
+
 
 class Show extends React.Component {
     render() {
@@ -44,6 +75,12 @@ class Show extends React.Component {
         
         
       </tr>
+
+      {checkGuest(round.guest1)}
+      {checkGuest(round.guest2)}
+      {checkGuest(round.guest3)}
+      {checkGuest(round.guest4)}
+
       
     </tbody>
   </table>

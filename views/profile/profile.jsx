@@ -47,7 +47,7 @@ class Profile extends React.Component {
             )
           })}
           </select>
-          {/* <label>Guest 1</label>
+          <label>Guest 1</label>
           <input type="text" name="guest1[name]" className="form-control"></input>
           <input type="hidden" name="guest1[round][]"></input>
           <label>Guest 2</label>
@@ -58,7 +58,7 @@ class Profile extends React.Component {
           <input type="hidden" name="guest3[round][]"></input>
           <label>Guest 4</label>
           <input type="text" name="guest4[name]" className="form-control"></input>
-          <input type="hidden" name="guest4[round][]"></input> */}
+          <input type="hidden" name="guest4[round][]"></input>
           <input type="hidden" name="round[]"></input>
           </div>
           
