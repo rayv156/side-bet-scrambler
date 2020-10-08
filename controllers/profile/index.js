@@ -80,17 +80,12 @@ router.put("/", auth, (req,res)=>{
     
 })
 
-router.put("/newround", auth, (req,res)=>{
+router.put("/newround", auth, async (req,res)=>{
     User.findByIdAndUpdate(req.session._id, req.body, {new:true}, (error, updateModel)=>{
-        Course.findOne({name: updateModel.currentCourse}, (err, foundCourse)=>{
-            res.render("profile/newround.jsx", {
-                user: updateModel,
-                course: foundCourse
-            })
+            res.redirect("/profile/newround")
         })
     })
     
-})
 
 
 //CREATE

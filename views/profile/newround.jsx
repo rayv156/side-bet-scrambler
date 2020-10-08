@@ -35,11 +35,18 @@ const checkGuest = (user) => {
        <>
        <tr>
       <th scope="row">{user.name}</th>
-      {user.round.map((item)=>{
-          
+      {user.round.map((item, index)=>{
+          if (index === 9){
+            return <td>{sumScore(user)[0]}</td>
+          } if (index === 19){
+            return <td>{sumScore(user)[1]}</td>
+          } if (index === 20){
+            return <td>{sumScore(user)[2]}</td>
+          } else {
           return (
               <td>{item}</td>
           )
+          }
         })}
         </tr>
         </>
@@ -75,7 +82,7 @@ class NewRound extends React.Component {
       <Layout title="Side-Bet Scrambler">
           <h3>{new Date().toLocaleDateString()}</h3>
           <h1>{course.name}</h1>
-          <button className="btn btn-dark btn-lg btn-block"  aria-expanded="true" data-toggle="collapse" data-target="#fullscore">Scorecard</button>
+          <button className="btn btn-dark btn-lg btn-block"  aria-expanded="false" data-toggle="collapse" data-target="#fullscore">Scorecard</button>
           <div className="table-responsive" id="fullscore">
         <table className="table">
         <thead className="thead-dark">
@@ -116,11 +123,18 @@ class NewRound extends React.Component {
   <tbody>
     <tr>
       <th scope="row">{user.firstName}</th>
-      {user.round.map((item)=>{
-          
+      {user.round.map((item, index)=>{
+          if (index === 9){
+            return <td>{sumScore(user)[0]}</td>
+          } if (index === 19){
+            return <td>{sumScore(user)[1]}</td>
+          } if (index === 20){
+            return <td>{sumScore(user)[2]}</td>
+          } else {
           return (
               <td>{item}</td>
           )
+          }
       })}
       
       
@@ -143,27 +157,27 @@ class NewRound extends React.Component {
  
     {course.tees.black.map((item, index)=>{
         if (index === 9){
-            return <><input type="hidden" name="round[]" value={sumScore(user)[0]}></input>
-            <input type="hidden" name="guest1[round][]" value={sumScore(user.guest1)[0]}></input>
-            <input type="hidden" name="guest2[round][]" value={sumScore(user.guest2)[0]}></input>
-            <input type="hidden" name="guest3[round][]" value={sumScore(user.guest3)[0]}></input>
-            <input type="hidden" name="guest4[round][]" value={sumScore(user.guest4)[0]}></input>
+            return <><input type="hidden" name="round[]" value={user.round[index]}></input>
+            <input type="hidden" name="guest1[round][]" value={user.guest1.round[index]}></input>
+            <input type="hidden" name="guest2[round][]" value={user.guest2.round[index]}></input>
+            <input type="hidden" name="guest3[round][]" value={user.guest3.round[index]}></input>
+            <input type="hidden" name="guest4[round][]" value={user.guest4.round[index]}></input>
             </>
         } if(index === 19){
-            return <><input type="hidden" name="round[]" value={sumScore(user)[1]}></input>
-            <input type="hidden" name="guest1[round][]" value={sumScore(user.guest1)[1]}></input>
-            <input type="hidden" name="guest2[round][]" value={sumScore(user.guest2)[1]}></input>
-            <input type="hidden" name="guest3[round][]" value={sumScore(user.guest3)[1]}></input>
-            <input type="hidden" name="guest4[round][]" value={sumScore(user.guest4)[1]}></input></>
+            return <><input type="hidden" name="round[]" value={user.round[index]}></input>
+            <input type="hidden" name="guest1[round][]" value={user.guest1.round[index]}></input>
+            <input type="hidden" name="guest2[round][]" value={user.guest2.round[index]}></input>
+            <input type="hidden" name="guest3[round][]" value={user.guest3.round[index]}></input>
+            <input type="hidden" name="guest4[round][]" value={user.guest4.round[index]}></input></>
         } if(index === 20) {
-            return <><input type="hidden" name="round[]" value={sumScore(user)[2]}></input>
-            <input type="hidden" name="guest1[round][]" value={sumScore(user.guest1)[2]}></input>
-            <input type="hidden" name="guest2[round][]" value={sumScore(user.guest2)[2]}></input>
-            <input type="hidden" name="guest3[round][]" value={sumScore(user.guest3)[2]}></input>
-            <input type="hidden" name="guest4[round][]" value={sumScore(user.guest4)[2]}></input></>
+            return <><input type="hidden" name="round[]" value={user.round[index]}></input>
+            <input type="hidden" name="guest1[round][]" value={user.guest1.round[index]}></input>
+            <input type="hidden" name="guest2[round][]" value={user.guest2.round[index]}></input>
+            <input type="hidden" name="guest3[round][]" value={user.guest3.round[index]}></input>
+            <input type="hidden" name="guest4[round][]" value={user.guest4.round[index]}></input></>
         }else{
             return <>
-            <div className="d-flex flex-column justify-content-between m-3 col-3 bg-light border-dark card" id="each-hole" style={{margin: 20}, {borderRadius: 5}, {width: 500}}>
+            <div className="d-flex flex-column justify-content-between m-1 col-6 bg-light border-dark card" id="each-hole" style={{margin: 20}, {borderRadius: 5}, {width: 500}}>
             <h5>HOLE: {item.hole}</h5>
             <h6>{user.firstName}: <select className="form-control" name="round[]"><option>{user.round[index]}</option>{optionLoop()}</select></h6>
             
@@ -182,8 +196,8 @@ class NewRound extends React.Component {
     })}
     </div>
 
-
     <input type="submit" className="btn btn-success btn-lg btn-block" value="Submit"/>
+    
     </form>
     <br>
     </br>
