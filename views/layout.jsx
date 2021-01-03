@@ -18,8 +18,8 @@ class Layout extends React.Component {
       <body>
           <header>
               <nav className="navbar navbar-dark bg-dark"> 
-                  <a className="navbar-brand" href="/profile"><span className="brand-title" style={{fontFamily: "'Calligraffitti', cursive"}}>Side-Bet Scrambler </span><i class='fas fa-golf-ball'></i></a>
-                  
+                  {/* <a className="navbar-brand" href="/profile"><span className="brand-title" style={{fontFamily: "'Calligraffitti', cursive"}}>Side-Bet Scrambler </span><i class='fas fa-golf-ball'></i></a> */}
+                  <a className="navbar-brand" href="/profile"><img src="https://i.imgur.com/GfDeNES.png?1" style={{width: 150}}/></a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                   </button>
