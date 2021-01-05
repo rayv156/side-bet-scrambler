@@ -2,7 +2,7 @@
 
 ## App Functionality:
 
-This web app uses Mongo || Express || Express React Views is a golf digital scorecard tracker with the ability to save and view previous rounds.  It also pulls the golf course info in from a collection that I have created on mongodb.  Each user has their own profile page that is rendered based on the user's data.  This will be a project that I continue to work on that will incorporate the side bets/wagers that generally come with a competitive golf round.
+This web app uses Mongo || Express || Express React Views is a golf digital scorecard tracker with the ability to save and view previous rounds.  It also pulls the golf course info in from a collection that I have created on mongodb.  Each user has their own profile page that is rendered based on the user's data.  This will be a project that I continue to work on that will incorporate the side bets/wagers which generally come with a competitive golf round.
 
 ## Page Design:
 
